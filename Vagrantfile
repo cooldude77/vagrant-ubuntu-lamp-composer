@@ -3,7 +3,7 @@ Vagrant.configure("2") do |config|
 
   # Give our VM a name so we immediately know which box this is when opening VirtualBox, and spice up our VM's resources
     config.vm.provider "virtualbox" do |v|
-        v.name = "Our amazing test project"
+        v.name = "My Cool Test box"
         v.memory = 4096
         v.cpus = 1
     end
