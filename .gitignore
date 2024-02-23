@@ -1,2 +1,4 @@
-html
+html/*
+!html/index.html
+!html/phpinfo.php
 .vagrant
