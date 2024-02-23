@@ -58,9 +58,9 @@ class Kernel extends BaseKernel
     public function getLogDir(): string
     {
         if($this->environment=="dev"){
-            return '/var/log'; //and here
+            return '/var/logs'; //and here
     }
-        return dirname(__DIR__).'/var/'.$this->environment.'/log';
+        return dirname(__DIR__).'/var/'.$this->environment.'/logs';
     }
 }
 
