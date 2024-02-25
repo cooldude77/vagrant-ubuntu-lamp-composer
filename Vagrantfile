@@ -6,12 +6,21 @@ Vagrant.configure("2") do |config|
         v.name = "My Cool Test box"
         v.memory = 4096
         v.cpus = 1
+		
+		# No internet on host machine ? 
+		# solution is here : https://stackoverflow.com/a/18457420
+		v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+		v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+		# /No internet on host machine ?
+		
     end
     # Choose a custom IP so this doesn't collide with other Vagrant boxes
     config.vm.network "private_network", ip: "192.168.88.188"
 	
 	config.vm.synced_folder ".", "/var/www", mount_options: ["dmode=777,fmode=666"]
     
+	
+	
 	 # Execute shell script(s)
 	config.vm.provision :shell, path: "provision/components/start.sh"
     config.vm.provision :shell, path: "provision/components/apache.sh"
